@@ -77,3 +77,15 @@ if __name__ == '__main__':
             speak("According to Wikipedia..")
             print(results)
             speak(results)
+        
+
+        if 'open docs' in query:
+            webbrowser.open("docs.google.com/document/u/0/")
+        
+        elif 'open ibispaint' in query:
+            webbrowser.open("docs.google.com/spreadsheets/u/0/")
+        
+        elif 'open youtube' in query:
+            webbrowser.open('youtube.com')
+
+
