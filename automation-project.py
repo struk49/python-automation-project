@@ -54,7 +54,7 @@ def takecommand():
     return query
 
 
-def sendemail(to, content):
+def sendEmail(to, content):
     server = smtplib.SMTP('smtp.gmail.com',587)
     sever.ehlo()
     server,starttls()
@@ -80,12 +80,42 @@ if __name__ == '__main__':
         
 
         if 'open docs' in query:
-            webbrowser.open("docs.google.com/document/u/0/")
+            webbrowser.open("https://docs.google.com/document/u/0/")
         
-        elif 'open ibispaint' in query:
-            webbrowser.open("docs.google.com/spreadsheets/u/0/")
+        elif 'open sheets' in query:
+            webbrowser.open("https://docs.google.com/spreadsheets/u/0/?pli=1")
         
         elif 'open youtube' in query:
             webbrowser.open('youtube.com')
+        
+        elif 'open pinterest' in query:
+            webbrowser.open('pinterest.com')
+        
+        elif 'open google' in query:
+            webbrowser.open('google.com')
+        
+        elif 'Tell me the time' in query:
+            strTime = datetime.datetime.now().strftime("%H:%M:%S")
+            speak(f'my dear friend, the time is {strTime}')
+        
+        elif ('open great learning youtube channel') in query:
+            webbrowser.open('https://www.youtube.com/user/beaconelearning')
+        
+        elif ('open linkedin') in query:
+            webbrowser.open('https://www.linkedin.com/in/andrew-struk-36a500105/')
+        
+        elif ('email to other freind') in query:
+            try:
+                speak('what do you want to send ?')
+                content = takecommand()
+                to = "maddisonstruk13@outlook.com"
+                sendEmail(to, content)
+                speak('your email has been sent successfully')
+            
+            except Exception as e:
+                print(e)
+                speak('your email failed to send..."  "please try again')
+        
+
 
 
